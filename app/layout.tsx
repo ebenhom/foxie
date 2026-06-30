@@ -42,10 +42,6 @@ children:React.ReactNode
 
 
 
-
-
-
-
 return (
 
 
@@ -71,17 +67,13 @@ top-0
 
 z-50
 
+w-full
+
 bg-white
 
 border-b
 
 shadow-sm
-
-px-4
-
-sm:px-8
-
-py-5
 
 "
 
@@ -96,18 +88,23 @@ max-w-6xl
 
 mx-auto
 
+px-4
+
+sm:px-8
+
+py-4
+
 flex
 
 items-center
 
 justify-between
 
-gap-5
+gap-4
 
 "
 
 >
-
 
 
 
@@ -124,7 +121,9 @@ href="/"
 
 className="
 
-text-3xl
+text-2xl
+
+sm:text-3xl
 
 font-bold
 
@@ -133,6 +132,8 @@ tracking-wide
 hover:text-blue-600
 
 transition
+
+whitespace-nowrap
 
 "
 
@@ -152,7 +153,7 @@ Foxie
 
 
 
-<div
+<nav
 
 className="
 
@@ -160,7 +161,7 @@ flex
 
 items-center
 
-gap-4
+gap-3
 
 sm:gap-6
 
@@ -182,9 +183,7 @@ sm:text-base
 
 <Link
 
-
 href="/"
-
 
 className="
 
@@ -192,14 +191,14 @@ hover:text-blue-600
 
 transition
 
+whitespace-nowrap
+
 "
 
 >
-
 
 Trang chủ
 
-
 </Link>
 
 
@@ -211,25 +210,23 @@ Trang chủ
 
 
 <Link
-
 
 href="/hot"
 
-
 className="
 
 hover:text-blue-600
 
 transition
 
+whitespace-nowrap
+
 "
 
 >
-
 
 🔥 Hot
 
-
 </Link>
 
 
@@ -241,24 +238,22 @@ transition
 
 
 <Link
-
 
 href="/category"
 
-
 className="
 
 hover:text-blue-600
 
 transition
 
+whitespace-nowrap
+
 "
 
 >
 
-
 📚 Thể loại
-
 
 </Link>
 
@@ -272,9 +267,7 @@ transition
 
 <Link
 
-
 href="/search"
-
 
 className="
 
@@ -282,13 +275,13 @@ hover:text-blue-600
 
 transition
 
+whitespace-nowrap
+
 "
 
 >
 
-
 🔎 Tìm kiếm
-
 
 </Link>
 
@@ -308,9 +301,7 @@ transition
 
 
 
-
-
-</div>
+</nav>
 
 
 
@@ -321,8 +312,6 @@ transition
 
 
 </div>
-
-
 
 
 
@@ -346,7 +335,6 @@ transition
 
 
 
-
 </AuthProvider>
 
 
@@ -361,7 +349,6 @@ transition
 
 
 </html>
-
 
 
 )

@@ -1,6 +1,6 @@
 import {prisma} from "@/lib/prisma"
 import Link from "next/link"
-import Navbar from "@/components/Navbar"
+
 
 
 export default async function HotPage(){
@@ -32,7 +32,7 @@ return (
 
 <div className="p-10">
 
-<Navbar />
+
 
 <h1 className="text-3xl font-bold mb-5">
 
