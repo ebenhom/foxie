@@ -73,7 +73,15 @@ className="
 
 text-2xl
 
+sm:text-3xl
+
 font-bold
+
+tracking-wide
+
+hover:text-blue-600
+
+transition
 
 "
 
@@ -99,7 +107,9 @@ flex
 
 items-center
 
-gap-5
+gap-4
+
+sm:gap-6
 
 "
 
@@ -122,6 +132,14 @@ className="
 hover:text-blue-600
 
 transition
+
+px-3
+
+py-2
+
+rounded-lg
+
+hover:bg-gray-100
 
 "
 
@@ -150,6 +168,14 @@ className="
 hover:text-blue-600
 
 transition
+
+px-3
+
+py-2
+
+rounded-lg
+
+hover:bg-gray-100
 
 "
 

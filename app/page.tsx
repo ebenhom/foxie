@@ -4,8 +4,6 @@ import ContinueReading from "@/components/ContinueReading"
 
 import { unstable_cache } from "next/cache"
 
-import Navbar from "@/components/Navbar"
-
 import Link from "next/link"
 
 
@@ -17,6 +15,8 @@ import Link from "next/link"
 
 
 export default async function Home(){
+
+
 
 
 
@@ -76,7 +76,10 @@ revalidate:60
 
 
 
+
 const novels = await getNovels()
+
+
 
 
 
@@ -144,7 +147,10 @@ revalidate:60
 
 
 
+
+
 const hotNovels = await getHotNovels()
+
 
 
 
@@ -190,18 +196,6 @@ bg-gray-50
 
 
 
-<Navbar />
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -233,6 +227,9 @@ py-8
 
 
 </section>
+
+
+
 
 
 
@@ -297,7 +294,10 @@ mb-8
 
 
 
+
+
 </h1>
+
 
 
 
@@ -332,6 +332,8 @@ sm:gap-6
 "
 
 >
+
+
 
 
 
@@ -412,6 +414,9 @@ transition
 
 
 
+
+
+
 <img
 
 
@@ -440,7 +445,11 @@ alt={novel.title}
 
 
 
+
+
 />
+
+
 
 
 
@@ -498,6 +507,7 @@ mt-4
 
 
 
+
 <p
 
 
@@ -521,6 +531,9 @@ text-sm
 
 
 </p>
+
+
+
 
 
 
@@ -574,6 +587,10 @@ mt-2
 
 
 
+
+
+
+
 </Link>
 
 
@@ -581,6 +598,10 @@ mt-2
 
 
 ))}
+
+
+
+
 
 
 
@@ -608,6 +629,7 @@ mt-2
 
 
 </section>
+
 
 
 
@@ -666,6 +688,12 @@ pb-20
 
 
 
+
+
+
+
+
+
 <h1
 
 
@@ -688,7 +716,16 @@ mb-8
 
 
 
+
+
 </h1>
+
+
+
+
+
+
+
 
 
 
@@ -746,9 +783,22 @@ sm:gap-6
 
 
 
+
+
+
+
+
+
+
+
+
 {
 
 novels.map((novel:any)=>(
+
+
+
+
 
 
 
@@ -837,13 +887,22 @@ transition
 
 
 
+
+
+
+
+
 <img
 
 
 
 
 
+
+
 src={novel.cover}
+
+
 
 
 
@@ -867,13 +926,26 @@ rounded-lg
 
 
 
+
+
 alt={novel.title}
 
 
 
 
 
+
+
 />
+
+
+
+
+
+
+
+
+
 
 
 
@@ -936,6 +1008,10 @@ mt-4
 
 
 
+
+
+
+
 <p
 
 
@@ -957,6 +1033,11 @@ mt-3
 
 
 </p>
+
+
+
+
+
 
 
 
@@ -1021,6 +1102,10 @@ mt-1
 
 
 
+
+
+
+
 </Link>
 
 
@@ -1035,7 +1120,16 @@ mt-1
 
 
 
+
+
+
+
+
+
+
+
 ))
+
 
 
 }
@@ -1055,7 +1149,27 @@ mt-1
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
