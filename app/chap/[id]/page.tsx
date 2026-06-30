@@ -19,6 +19,7 @@ import ReaderToolbar from "@/components/ReaderToolbar"
 
 
 
+
 export default async function ChapPage
 ({
 
@@ -141,29 +142,11 @@ chapters[index+1]
 
 
 
-
-
 return (
 
 
 
-<div
-
-className="
-min-h-screen
-max-w-4xl
-mx-auto
-px-4
-sm:px-6
-py-8
-"
-
->
-
-
-
-
-
+<>
 
 
 {/* toolbar đọc truyện */}
@@ -176,12 +159,40 @@ py-8
 
 
 
+<div
 
-{/* nội dung chính */}
+className="
 
-<div>
+min-h-screen
+
+w-full
+
+overflow-x-hidden
+
+"
+
+>
 
 
+
+
+<div
+
+className="
+
+max-w-4xl
+
+mx-auto
+
+px-4
+
+sm:px-6
+
+py-8
+
+"
+
+>
 
 
 
@@ -193,8 +204,6 @@ py-8
 
 
 
-
-
 <Link
 
 
@@ -202,10 +211,17 @@ href={`/novels/${chap.novel.id}`}
 
 
 className="
-text-3xl
+
+text-2xl
+
+sm:text-3xl
+
 font-bold
+
 hover:text-blue-600
+
 transition
+
 "
 
 >
@@ -222,13 +238,21 @@ transition
 
 
 
+
 <h2
 
 className="
-text-xl
+
+text-lg
+
+sm:text-xl
+
 mt-5
+
 mb-8
+
 font-semibold
+
 "
 
 >
@@ -247,23 +271,28 @@ font-semibold
 
 
 
-
-
-{/* thanh chuyển chương đầu */}
-
-
+{/* chuyển chương đầu */}
 
 
 
 <div
 
 className="
+
+w-full
+
 flex
+
 items-center
+
 justify-between
+
 gap-3
+
 mb-8
+
 flex-wrap
+
 "
 
 >
@@ -283,13 +312,21 @@ prev ? (
 href={`/chap/${prev.id}`}
 
 className="
+
 border
+
 px-4
+
 py-2
+
 rounded-xl
+
 hover:bg-gray-100
+
 transition
+
 whitespace-nowrap
+
 "
 
 >
@@ -305,14 +342,13 @@ whitespace-nowrap
 
 (
 
-<div className="w-30" />
+
+<div className="w-24"/>
+
 
 )
 
 }
-
-
-
 
 
 
@@ -335,8 +371,6 @@ currentId={chap.id}
 
 
 
-
-
 {
 
 next ? (
@@ -347,13 +381,21 @@ next ? (
 href={`/chap/${next.id}`}
 
 className="
+
 border
+
 px-4
+
 py-2
+
 rounded-xl
+
 hover:bg-gray-100
+
 transition
+
 whitespace-nowrap
+
 "
 
 >
@@ -369,7 +411,7 @@ Trang sau →
 
 (
 
-<div className="w-30" />
+<div className="w-24"/>
 
 )
 
@@ -379,12 +421,7 @@ Trang sau →
 
 
 
-
-
 </div>
-
-
-
 
 
 
@@ -413,27 +450,17 @@ chapterId={chap.id}
 
 
 
-
-
-
-
-{/* setting đọc truyện */}
-
-
-
 <div
 
 className="
+
 my-6
+
 "
 
 >
 
-
-
 <ReaderSetting />
-
-
 
 </div>
 
@@ -445,12 +472,7 @@ my-6
 
 
 
-
-
-
-{/* nội dung chapter */}
-
-
+{/* nội dung truyện */}
 
 <ReaderContent
 
@@ -468,33 +490,34 @@ content={chap.content}
 
 
 
-
-
-
 {/* ảnh chapter */}
 
 
 
 {
 
-
 chap.images.length >0 && (
+
 
 
 <div
 
 className="
+
 mt-10
+
 space-y-8
+
 "
 
 >
 
 
+
 {
 
-
 chap.images.map((img:string,index:number)=>(
+
 
 
 <img
@@ -507,8 +530,11 @@ src={img}
 
 
 className="
+
 w-full
+
 rounded-xl
+
 "
 
 alt="chapter image"
@@ -518,8 +544,8 @@ alt="chapter image"
 />
 
 
-))
 
+))
 
 
 }
@@ -532,6 +558,7 @@ alt="chapter image"
 )
 
 
+
 }
 
 
@@ -546,22 +573,28 @@ alt="chapter image"
 
 
 
-{/* thanh chuyển chương cuối */}
-
-
-
+{/* chuyển chương cuối */}
 
 
 
 <div
 
 className="
+
+w-full
+
 flex
+
 items-center
+
 justify-between
+
 gap-3
+
 mt-10
+
 flex-wrap
+
 "
 
 >
@@ -582,13 +615,21 @@ prev ? (
 href={`/chap/${prev.id}`}
 
 className="
+
 border
+
 px-4
+
 py-2
+
 rounded-xl
+
 hover:bg-gray-100
+
 transition
+
 whitespace-nowrap
+
 "
 
 >
@@ -604,13 +645,11 @@ whitespace-nowrap
 
 (
 
-<div className="w-30" />
+<div className="w-24"/>
 
 )
 
 }
-
-
 
 
 
@@ -636,10 +675,6 @@ currentId={chap.id}
 
 
 
-
-
-
-
 {
 
 next ? (
@@ -650,13 +685,21 @@ next ? (
 href={`/chap/${next.id}`}
 
 className="
+
 border
+
 px-4
+
 py-2
+
 rounded-xl
+
 hover:bg-gray-100
+
 transition
+
 whitespace-nowrap
+
 "
 
 >
@@ -672,7 +715,7 @@ Trang sau →
 
 (
 
-<div className="w-30" />
+<div className="w-24"/>
 
 )
 
@@ -691,11 +734,15 @@ Trang sau →
 
 
 
+
+</div>
+
+
+
 </div>
 
 
-
-</div>
+</>
 
 
 
