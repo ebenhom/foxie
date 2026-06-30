@@ -16,7 +16,6 @@ const pathname = usePathname()
 
 
 
-// đang đọc truyện thì ẩn navbar
 if(pathname.startsWith("/chap/")){
 
 return null
@@ -26,7 +25,6 @@ return null
 
 
 return (
-
 
 <header
 
@@ -90,17 +88,11 @@ className="
 
 text-2xl
 
-sm:text-3xl
-
 font-bold
 
-text-black
+text-gray-900
 
 dark:text-white
-
-hover:text-blue-600
-
-transition
 
 "
 
@@ -112,121 +104,43 @@ Foxie
 
 
 
-
 <nav
 
 className="
 
 flex
 
-flex-wrap
+gap-4
 
 items-center
 
-justify-end
-
-gap-3
-
-sm:gap-6
-
-text-sm
-
-sm:text-base
-
 "
 
 >
 
 
-<Link
-
-href="/"
-
-className="
-
-text-black
-
-dark:text-white
-
-hover:text-blue-600
-
-transition
-
-"
-
->
+<Link href="/" className="dark:text-white">
 
 Trang chủ
 
 </Link>
 
 
-
-<Link
-
-href="/hot"
-
-className="
-
-text-black
-
-dark:text-white
-
-hover:text-blue-600
-
-transition
-
-"
-
->
+<Link href="/hot" className="dark:text-white">
 
 🔥 Hot
 
 </Link>
 
 
-
-<Link
-
-href="/category"
-
-className="
-
-text-black
-
-dark:text-white
-
-hover:text-blue-600
-
-transition
-
-"
-
->
+<Link href="/category" className="dark:text-white">
 
 📚 Thể loại
 
 </Link>
 
 
-
-<Link
-
-href="/search"
-
-className="
-
-text-black
-
-dark:text-white
-
-hover:text-blue-600
-
-transition
-
-"
-
->
+<Link href="/search" className="dark:text-white">
 
 🔎 Tìm kiếm
 
@@ -234,7 +148,7 @@ transition
 
 
 
-<AuthButton />
+<AuthButton/>
 
 
 </nav>
@@ -245,8 +159,6 @@ transition
 
 </header>
 
-
 )
-
 
 }
