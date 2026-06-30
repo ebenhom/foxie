@@ -40,7 +40,7 @@ Quản lý tài khoản
 {
 
 
-users.map(user=>(
+users.map((user:any)=>(
 
 
 <div
