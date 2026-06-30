@@ -96,8 +96,8 @@ return (
 onClick={()=>signIn("google")}
 
 className="
-bg-black
-text-white
+dark:bg-white
+dark:text-black
 px-3
 py-2
 rounded
