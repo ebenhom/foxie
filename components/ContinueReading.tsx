@@ -178,7 +178,7 @@ mb-6
 
 {
 
-histories.map(item=>(
+histories.map((item:any)=>(
 
 
 

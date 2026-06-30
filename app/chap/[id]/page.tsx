@@ -517,7 +517,7 @@ space-y-8
 {
 
 
-chap.images.map((img,index:any)=>(
+chap.images.map((img:string,index:number)=>(
 
 
 <img
