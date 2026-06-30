@@ -1,10 +1,14 @@
 import { prisma } from "@/lib/prisma"
 
-import Link from "next/link"
-
 import ContinueReading from "@/components/ContinueReading"
 
 import { unstable_cache } from "next/cache"
+
+import Navbar from "@/components/Navbar"
+
+import Link from "next/link"
+
+
 
 
 
@@ -13,6 +17,12 @@ import { unstable_cache } from "next/cache"
 
 
 export default async function Home(){
+
+
+
+
+
+
 
 
 
@@ -61,7 +71,20 @@ revalidate:60
 
 
 
+
+
+
+
+
 const novels = await getNovels()
+
+
+
+
+
+
+
+
 
 
 
@@ -117,7 +140,21 @@ revalidate:60
 
 
 
+
+
+
+
 const hotNovels = await getHotNovels()
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,6 +176,10 @@ className="
 
 min-h-screen
 
+w-full
+
+overflow-x-hidden
+
 bg-gray-50
 
 "
@@ -149,162 +190,10 @@ bg-gray-50
 
 
 
+<Navbar />
 
 
 
-
-
-
-
-<nav
-
-className="
-
-max-w-6xl
-
-mx-auto
-
-px-10
-
-py-6
-
-flex
-
-items-center
-
-justify-between
-
-gap-6
-
-"
-
->
-
-
-
-
-
-
-
-
-<div className="flex gap-8 items-center">
-
-
-
-
-
-
-
-
-<Link
-
-href="/hot"
-
-className="
-
-hover:text-blue-600
-
-transition
-
-font-medium
-
-"
-
->
-
-🔥 Hot
-
-</Link>
-
-
-
-
-
-
-
-
-
-<Link
-
-href="/category"
-
-className="
-
-hover:text-blue-600
-
-transition
-
-font-medium
-
-"
-
->
-
-📚 Thể loại
-
-</Link>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<form action="/search">
-
-
-<input
-
-
-name="q"
-
-
-placeholder="🔍 Tìm kiếm truyện..."
-
-
-className="
-
-border
-
-rounded-xl
-
-px-5
-
-py-3
-
-w-72
-
-focus:outline-none
-
-focus:ring-2
-
-focus:ring-blue-400
-
-"
-
-/>
-
-
-
-</form>
-
-
-
-
-
-
-
-</nav>
 
 
 
@@ -321,11 +210,15 @@ focus:ring-blue-400
 
 className="
 
+w-full
+
 max-w-6xl
 
 mx-auto
 
-px-10
+px-4
+
+sm:px-10
 
 py-8
 
@@ -353,21 +246,34 @@ py-8
 
 
 
+
+
+
+
+
 <section
 
 className="
+
+w-full
 
 max-w-6xl
 
 mx-auto
 
-px-10
+px-4
+
+sm:px-10
 
 py-8
 
 "
 
 >
+
+
+
+
 
 
 
@@ -386,10 +292,20 @@ mb-8
 >
 
 
+
 🔥 Truyện Hot
 
 
+
 </h1>
+
+
+
+
+
+
+
+
 
 
 
@@ -403,13 +319,27 @@ className="
 
 grid
 
-grid-cols-4
+grid-cols-2
 
-gap-6
+sm:grid-cols-3
+
+lg:grid-cols-4
+
+gap-3
+
+sm:gap-6
 
 "
 
 >
+
+
+
+
+
+
+
+
 
 
 
@@ -425,16 +355,21 @@ hotNovels.map((novel:any)=>(
 
 
 
+
 <Link
+
 
 
 prefetch={true}
 
 
+
 key={novel.id}
 
 
+
 href={`/novels/${novel.id}`}
+
 
 
 className="
@@ -445,7 +380,9 @@ border
 
 rounded-xl
 
-p-4
+p-3
+
+sm:p-4
 
 shadow-sm
 
@@ -457,8 +394,16 @@ transition
 
 "
 
-
 >
+
+
+
+
+
+
+
+
+
 
 
 
@@ -470,20 +415,29 @@ transition
 <img
 
 
+
 src={novel.cover}
+
 
 
 className="
 
 w-full
 
-h-64
+h-44
+
+sm:h-64
 
 object-cover
 
 rounded-lg
 
 "
+
+
+
+alt={novel.title}
+
 
 
 />
@@ -494,23 +448,36 @@ rounded-lg
 
 
 
+
+
+
+
+
+
+
+
 <h2
+
+
 
 className="
 
 font-bold
 
-text-lg
+text-sm
+
+sm:text-lg
 
 mt-4
 
 "
 
-
 >
 
 
+
 {novel.title}
+
 
 
 </h2>
@@ -522,7 +489,18 @@ mt-4
 
 
 
+
+
+
+
+
+
+
+
+
 <p
+
+
 
 className="
 
@@ -530,11 +508,16 @@ text-gray-500
 
 mt-2
 
+text-sm
+
 "
 
 >
 
+
+
 👁 {novel.views}
+
 
 
 </p>
@@ -546,7 +529,17 @@ mt-2
 
 
 
+
+
+
+
+
+
+
+
 <p
+
+
 
 className="
 
@@ -558,10 +551,22 @@ mt-2
 
 >
 
+
+
 🏷 {novel.category}
 
 
+
 </p>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -575,10 +580,9 @@ mt-2
 
 
 
-))
+))}
 
 
-}
 
 
 
@@ -587,6 +591,15 @@ mt-2
 
 
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -608,15 +621,30 @@ mt-2
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <section
 
 className="
+
+w-full
 
 max-w-6xl
 
 mx-auto
 
-px-10
+px-4
+
+sm:px-10
 
 py-8
 
@@ -632,7 +660,15 @@ pb-20
 
 
 
+
+
+
+
+
+
 <h1
+
+
 
 className="
 
@@ -646,7 +682,11 @@ mb-8
 
 >
 
+
+
 📚 Truyện mới update
+
+
 
 </h1>
 
@@ -661,19 +701,42 @@ mb-8
 
 
 
+
+
+
+
+
+
 <div
+
+
 
 className="
 
 grid
 
-grid-cols-4
+grid-cols-2
 
-gap-6
+sm:grid-cols-3
+
+lg:grid-cols-4
+
+gap-3
+
+sm:gap-6
 
 "
 
 >
+
+
+
+
+
+
+
+
+
 
 
 
@@ -693,17 +756,33 @@ novels.map((novel:any)=>(
 
 
 
+
+
+
+
+
+
+
+
+
+
 <Link
 
 
+
 prefetch={true}
+
 
 
 key={novel.id}
 
 
 
+
+
 href={`/novels/${novel.id}`}
+
+
 
 
 
@@ -715,7 +794,9 @@ border
 
 rounded-xl
 
-p-4
+p-3
+
+sm:p-4
 
 shadow-sm
 
@@ -729,7 +810,24 @@ transition
 
 
 
+
+
+
+
+
+
 >
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -743,7 +841,11 @@ transition
 
 
 
+
+
 src={novel.cover}
+
+
 
 
 
@@ -751,13 +853,23 @@ className="
 
 w-full
 
-h-64
+h-44
+
+sm:h-64
 
 object-cover
 
 rounded-lg
 
 "
+
+
+
+
+
+alt={novel.title}
+
+
 
 
 
@@ -771,13 +883,24 @@ rounded-lg
 
 
 
+
+
+
+
+
+
+
 <h2
+
+
 
 className="
 
 font-bold
 
-text-lg
+text-sm
+
+sm:text-lg
 
 mt-4
 
@@ -786,7 +909,9 @@ mt-4
 >
 
 
+
 {novel.title}
+
 
 
 </h2>
@@ -799,7 +924,21 @@ mt-4
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <p
+
+
 
 className="
 
@@ -811,7 +950,10 @@ mt-3
 
 >
 
+
+
 🏷 {novel.category}
+
 
 
 </p>
@@ -824,7 +966,20 @@ mt-3
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <p
+
+
 
 className="
 
@@ -838,10 +993,25 @@ mt-1
 
 >
 
+
+
 {novel.tags}
 
 
+
 </p>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -859,11 +1029,22 @@ mt-1
 
 
 
+
+
+
+
+
+
 ))
 
 
-
 }
+
+
+
+
+
+
 
 
 
@@ -884,7 +1065,19 @@ mt-1
 
 
 
+
+
+
+
+
+
+
 </section>
+
+
+
+
+
 
 
 

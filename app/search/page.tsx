@@ -149,7 +149,7 @@ Tìm kiếm
 
 
 
-<div className="grid grid-cols-4 gap-5">
+<div className="grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
 
 
 
@@ -181,7 +181,7 @@ className="border p-3 rounded"
 src={novel.cover}
 
 
-className="w-full h-60 object-cover rounded"
+className="w-full sm:w-72 h-60 object-cover rounded"
 
 
 />

@@ -10,6 +10,11 @@ import ChapterSelector from "@/components/ChapterSelector"
 
 import ReaderSetting from "@/components/ReaderSetting"
 
+import ReaderContent from "@/components/ReaderContent"
+
+import ReaderToolbar from "@/components/ReaderToolbar"
+
+
 
 
 
@@ -107,6 +112,7 @@ chap.novel.chapters
 
 
 
+
 const index =
 chapters.findIndex(
 
@@ -135,6 +141,8 @@ chapters[index+1]
 
 
 
+
+
 return (
 
 
@@ -142,6 +150,7 @@ return (
 <div
 
 className="
+min-h-screen
 max-w-4xl
 mx-auto
 px-4
@@ -157,30 +166,20 @@ py-8
 
 
 
-<div className="mb-8">
+{/* toolbar đọc truyện */}
+
+<ReaderToolbar />
 
 
-<Link
-
-href="/"
-
-className="
-border
-px-4
-py-2
-rounded-xl
-hover:bg-gray-100
-transition
-"
-
->
-
-← Trang chủ
-
-</Link>
 
 
-</div>
+
+
+
+
+{/* nội dung chính */}
+
+<div>
 
 
 
@@ -191,6 +190,8 @@ transition
 
 
 {/* tên truyện */}
+
+
 
 
 
@@ -214,7 +215,6 @@ transition
 
 
 </Link>
-
 
 
 
@@ -247,7 +247,11 @@ font-semibold
 
 
 
+
+
 {/* thanh chuyển chương đầu */}
+
+
 
 
 
@@ -259,9 +263,12 @@ items-center
 justify-between
 gap-3
 mb-8
+flex-wrap
 "
 
 >
+
+
 
 
 
@@ -310,6 +317,7 @@ whitespace-nowrap
 
 
 
+
 <ChapterSelector
 
 
@@ -320,6 +328,7 @@ currentId={chap.id}
 
 
 />
+
 
 
 
@@ -369,6 +378,9 @@ Trang sau →
 
 
 
+
+
+
 </div>
 
 
@@ -403,6 +415,8 @@ chapterId={chap.id}
 
 
 
+
+
 {/* setting đọc truyện */}
 
 
@@ -416,75 +430,38 @@ my-6
 >
 
 
+
 <ReaderSetting />
 
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-{/* nội dung chap */}
-
-
-
-<div
-
-className="
-text-lg
-leading-normal
-px-3
-sm:px-6
-md:px-10
-"
-
->
-
-
-{
-
-
-chap.content
-
-.split("\n")
-
-.map((line:any,index:number)=>(
-
-
-<p
-
-key={index}
-
-className="
-my-3
-"
-
->
-
-
-{line}
-
-
-</p>
-
-
-
-))
-
-
-}
-
-
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+{/* nội dung chapter */}
+
+
+
+<ReaderContent
+
+
+content={chap.content}
+
+
+/>
+
+
+
 
 
 
@@ -537,10 +514,12 @@ rounded-xl
 alt="chapter image"
 
 
+
 />
 
 
 ))
+
 
 
 }
@@ -573,6 +552,7 @@ alt="chapter image"
 
 
 
+
 <div
 
 className="
@@ -581,9 +561,11 @@ items-center
 justify-between
 gap-3
 mt-10
+flex-wrap
 "
 
 >
+
 
 
 
@@ -656,6 +638,8 @@ currentId={chap.id}
 
 
 
+
+
 {
 
 next ? (
@@ -697,6 +681,8 @@ Trang sau →
 
 
 
+
+
 </div>
 
 
@@ -704,6 +690,8 @@ Trang sau →
 
 
 
+
+</div>
 
 
 

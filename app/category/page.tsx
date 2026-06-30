@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma"
 import Link from "next/link"
-
+import Navbar from "@/components/Navbar"
 
 
 export default async function Category(){
@@ -33,7 +33,7 @@ return (
 
 <div className="p-10">
 
-
+<Navbar />
 
 <h1 className="text-3xl font-bold mb-8">
 
@@ -45,7 +45,7 @@ Thể loại truyện
 
 
 
-<div className="flex gap-3 flex-wrap mb-10">
+<div className="flex flex-wrap gap-3 sm:gap-6">
 
 
 {

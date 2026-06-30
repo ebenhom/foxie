@@ -167,7 +167,7 @@ novelId={novel.id}
 
 
 
-<div className="flex gap-10">
+<div className="flex flex-col sm:flex-row gap-4">
 
 
 
@@ -179,7 +179,7 @@ novelId={novel.id}
 src={novel.cover}
 
 
-className="w-60 h-80 object-cover rounded"
+className="w-full max-w-md mx-auto h-80 object-cover rounded"
 
 
 />

@@ -5,8 +5,8 @@ import {useRouter} from "next/navigation"
 
 
 
-export default function ChapterSelector(
-{
+export default function ChapterSelector
+({
 chapters,
 currentId
 }:{
@@ -15,9 +15,9 @@ id:string
 title:string
 }[],
 currentId:string
-}
+})
 
-){
+{
 
 
 const router = useRouter()
@@ -30,8 +30,16 @@ return (
 <select
 
 
-className="border p-3 rounded"
-
+className="
+w-full
+sm:w-auto
+border
+px-3
+py-2
+rounded-xl
+text-sm
+sm:text-base
+"
 
 value={currentId}
 
@@ -40,7 +48,9 @@ onChange={(e)=>{
 
 
 router.push(
+
 `/chap/${e.target.value}`
+
 )
 
 
@@ -50,10 +60,10 @@ router.push(
 >
 
 
+
 {
 
-
-chapters.map((chapter:any)=>(
+chapters.map((chapter)=>(
 
 
 <option

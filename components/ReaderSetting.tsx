@@ -11,11 +11,7 @@ export default function ReaderSetting(){
 
 const [open,setOpen]=useState(false)
 
-
-
 const [dark,setDark]=useState(false)
-
-
 
 const [size,setSize]=useState(18)
 
@@ -45,9 +41,7 @@ setDark(true)
 
 if(savedSize){
 
-setSize(
-Number(savedSize)
-)
+setSize(Number(savedSize))
 
 }
 
@@ -64,6 +58,7 @@ Number(savedSize)
 useEffect(()=>{
 
 
+
 document.documentElement.style.setProperty(
 
 "--reader-size",
@@ -74,8 +69,9 @@ document.documentElement.style.setProperty(
 
 
 
-if(dark){
 
+
+if(dark){
 
 document.body.classList.add(
 "reader-dark"
@@ -114,7 +110,6 @@ String(size)
 
 
 
-
 },[dark,size])
 
 
@@ -126,10 +121,16 @@ String(size)
 return (
 
 
+<div
 
-<div className="fixed right-5 bottom-5">
+className="
+fixed
+right-4
+bottom-4
+z-50
+"
 
-
+>
 
 
 
@@ -139,8 +140,13 @@ return (
 onClick={()=>setOpen(!open)}
 
 
-className="border rounded-full p-3 bg-white"
-
+className="
+border
+rounded-full
+p-3
+bg-white
+shadow
+"
 
 >
 
@@ -156,7 +162,6 @@ className="border rounded-full p-3 bg-white"
 
 
 
-
 {
 
 
@@ -164,11 +169,46 @@ open && (
 
 
 
-<div className="absolute bottom-14 right-0 border p-5 rounded bg-white w-64">
+<div
+
+
+className="
+
+absolute
+
+bottom-16
+
+right-0
+
+w-70
+
+max-w-[90vw]
+
+border
+
+rounded-xl
+
+bg-white
+
+shadow-lg
+
+p-5
+
+"
+
+>
 
 
 
-<h3 className="font-bold mb-4">
+
+<h3
+
+className="
+font-bold
+mb-4
+"
+
+>
 
 Cài đặt đọc
 
@@ -180,8 +220,6 @@ Cài đặt đọc
 
 
 
-<div className="mb-4">
-
 
 
 <button
@@ -190,10 +228,24 @@ Cài đặt đọc
 onClick={()=>setDark(!dark)}
 
 
-className="border px-3 py-2 rounded"
+className="
 
+border
+
+px-3
+
+py-2
+
+rounded-xl
+
+mb-5
+
+w-full
+
+"
 
 >
+
 
 
 {
@@ -203,21 +255,16 @@ dark
 
 ?
 
-"☀️ Sáng"
+"☀️ Chế độ sáng"
 
 :
 
-"🌙 Tối"
+"🌙 Chế độ tối"
 
 }
 
 
-
 </button>
-
-
-</div>
-
 
 
 
@@ -228,12 +275,53 @@ dark
 <div>
 
 
+<p
 
-<p>
+className="
+mb-3
+"
+
+>
+
 
 Cỡ chữ: {size}px
 
+
 </p>
+
+
+
+
+
+
+
+<div
+
+className="
+flex
+items-center
+gap-3
+"
+
+>
+
+
+
+<button
+
+onClick={()=>setSize(Math.max(14,size-1))}
+
+className="
+border
+px-3
+rounded
+"
+
+>
+
+A-
+
+</button>
 
 
 
@@ -255,9 +343,9 @@ value={size}
 
 
 onChange={e=>
-setSize(
-Number(e.target.value)
-)
+
+setSize(Number(e.target.value))
+
 }
 
 
@@ -266,7 +354,36 @@ Number(e.target.value)
 
 
 
+
+
+<button
+
+
+onClick={()=>setSize(Math.min(32,size+1))}
+
+
+className="
+border
+px-3
+rounded
+"
+
+>
+
+A+
+
+</button>
+
+
+
 </div>
+
+
+
+
+
+</div>
+
 
 
 
@@ -279,12 +396,14 @@ Number(e.target.value)
 )
 
 
-
 }
 
 
 
+
+
 </div>
+
 
 
 )
