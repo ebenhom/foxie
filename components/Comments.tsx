@@ -156,7 +156,7 @@ Gửi
 {
 
 
-comments.map((c)=>(
+comments.map((c:any)=>(
 
 
 <div
