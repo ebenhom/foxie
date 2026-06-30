@@ -12,7 +12,6 @@ import ReaderSetting from "@/components/ReaderSetting"
 
 import ReaderContent from "@/components/ReaderContent"
 
-import ReaderToolbar from "@/components/ReaderToolbar"
 
 
 
@@ -151,7 +150,6 @@ return (
 
 {/* toolbar đọc truyện */}
 
-<ReaderToolbar />
 
 
 
