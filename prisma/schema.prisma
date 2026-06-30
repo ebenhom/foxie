@@ -2,15 +2,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
 datasource db {
   provider = "postgresql"
 }
 
-
-
 model User {
-
   id String @id @default(cuid())
 
   name String?
@@ -21,44 +17,55 @@ model User {
 
   role String @default("USER")
 
-
   comments Comment[]
 
   favorites Favorite[]
 
+  histories History[]
+
+  createdAt DateTime @default(now())
 }
-
-
 
 model Novel {
 
   id String @id @default(cuid())
 
+
   title String
+
 
   cover String
 
+
   description String
+
 
   tags String
 
+
+  category String @default("Khác")
+
+
   views Int @default(0)
+
 
   createdAt DateTime @default(now())
 
 
   chapters Chapter[]
 
+
   favorites Favorite[]
+
 
   comments Comment[]
 
+
+  histories History[]
+
 }
 
-
-
 model Chapter {
-
   id String @id @default(cuid())
 
   title String
@@ -67,60 +74,65 @@ model Chapter {
 
   images String[]
 
-
   novelId String
 
   novel Novel @relation(fields: [novelId], references: [id], onDelete: Cascade)
 
+  histories History[]
 
   createdAt DateTime @default(now())
-
 }
 
-
-
 model Comment {
-
   id String @id @default(cuid())
-
 
   text String
 
+  userId String
+
+  novelId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  novel Novel @relation(fields: [novelId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}
+
+model Favorite {
+  id String @id @default(cuid())
 
   userId String
 
   novelId String
 
-
-  user User @relation(fields: [userId], references: [id])
-
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   novel Novel @relation(fields: [novelId], references: [id], onDelete: Cascade)
-
 
   createdAt DateTime @default(now())
 
+  @@unique([userId, novelId])
 }
 
-
-
-model Favorite {
-
-
+model History {
   id String @id @default(cuid())
-
 
   userId String
 
   novelId String
 
+  chapterId String
 
-  user User @relation(fields: [userId], references: [id])
+  progress Int @default(0)
 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   novel Novel @relation(fields: [novelId], references: [id], onDelete: Cascade)
 
+  chapter Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 
-  @@unique([userId, novelId])
+  updatedAt DateTime @updatedAt
 
+  @@unique([userId, chapterId])
 }
