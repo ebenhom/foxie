@@ -67,7 +67,7 @@ className="border px-5 py-3 rounded"
 
 {
 
-novels.map((novel)=>(
+novels.map((novel:any)=>(
 
 
 

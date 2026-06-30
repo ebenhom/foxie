@@ -456,7 +456,7 @@ chap.content
 
 .split("\n")
 
-.map((line,index)=>(
+.map((line,index:any)=>(
 
 
 <p
@@ -517,7 +517,7 @@ space-y-8
 {
 
 
-chap.images.map((img,index)=>(
+chap.images.map((img,index:any)=>(
 
 
 <img

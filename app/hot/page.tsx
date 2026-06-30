@@ -47,7 +47,7 @@ Truyện Hot
 
 {
 
-novels.map((novel)=>(
+novels.map((novel:any)=>(
 
 
 <Link

@@ -334,7 +334,7 @@ Danh sách chương
 {
 
 
-novel.chapters.map((chapter)=>(
+novel.chapters.map((chapter:any)=>(
 
 
 
@@ -440,7 +440,7 @@ Bình luận
 {
 
 
-novel.comments.map((comment)=>(
+novel.comments.map((comment:any)=>(
 
 
 

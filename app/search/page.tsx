@@ -156,7 +156,7 @@ Tìm kiếm
 {
 
 
-novels.map((novel)=>(
+novels.map((novel:any)=>(
 
 
 <Link

@@ -50,7 +50,7 @@ Thể loại truyện
 
 {
 
-categories.map((cat)=>(
+categories.map((cat:any)=>(
 
 
 <Link
@@ -108,7 +108,7 @@ Tất cả truyện
 {
 
 
-novels.map((novel)=>(
+novels.map((novel:any)=>(
 
 
 <Link

@@ -94,7 +94,7 @@ Bạn chưa đọc truyện nào
 
 {
 
-histories.map((item)=>(
+histories.map((item:any)=>(
 
 
 

@@ -53,7 +53,7 @@ router.push(
 {
 
 
-chapters.map((chapter)=>(
+chapters.map((chapter:any)=>(
 
 
 <option

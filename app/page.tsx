@@ -419,7 +419,7 @@ gap-6
 
 {
 
-hotNovels.map((novel)=>(
+hotNovels.map((novel:any)=>(
 
 
 
@@ -685,7 +685,7 @@ gap-6
 
 {
 
-novels.map((novel)=>(
+novels.map((novel:any)=>(
 
 
 
