@@ -9,21 +9,15 @@ import AuthButton from "@/components/AuthButton"
 
 
 
-
-
 export default function Navbar(){
-
 
 
 const pathname = usePathname()
 
 
-const isReading =
-pathname.startsWith("/chap/")
 
-
-
-if(isReading){
+// đang đọc truyện thì ẩn navbar
+if(pathname.startsWith("/chap/")){
 
 return null
 
@@ -50,18 +44,13 @@ bg-white
 
 dark:bg-zinc-900
 
-text-black
-
-dark:text-white
-
-min-h-screen
-
 border-b
+
+dark:border-zinc-700
 
 shadow-sm
 
 "
-
 
 >
 
@@ -93,7 +82,6 @@ gap-4
 >
 
 
-
 <Link
 
 href="/"
@@ -106,17 +94,13 @@ sm:text-3xl
 
 font-bold
 
-text-gray-900
+text-black
 
 dark:text-white
 
 hover:text-blue-600
 
-dark:hover:text-blue-400
-
 transition
-
-whitespace-nowrap
 
 "
 
@@ -125,8 +109,6 @@ whitespace-nowrap
 Foxie
 
 </Link>
-
-
 
 
 
@@ -141,7 +123,7 @@ flex-wrap
 
 items-center
 
-justify-center
+justify-end
 
 gap-3
 
@@ -156,18 +138,21 @@ sm:text-base
 >
 
 
-
 <Link
 
 href="/"
 
-className="text-gray-900
+className="
+
+text-black
 
 dark:text-white
 
 hover:text-blue-600
 
-dark:hover:text-blue-400"
+transition
+
+"
 
 >
 
@@ -177,18 +162,21 @@ Trang chủ
 
 
 
-
 <Link
 
 href="/hot"
 
-className="text-gray-900
+className="
+
+text-black
 
 dark:text-white
 
 hover:text-blue-600
 
-dark:hover:text-blue-400"
+transition
+
+"
 
 >
 
@@ -198,18 +186,21 @@ dark:hover:text-blue-400"
 
 
 
-
 <Link
 
 href="/category"
 
-className="text-gray-900
+className="
+
+text-black
 
 dark:text-white
 
 hover:text-blue-600
 
-dark:hover:text-blue-400"
+transition
+
+"
 
 >
 
@@ -219,18 +210,21 @@ dark:hover:text-blue-400"
 
 
 
-
 <Link
 
 href="/search"
 
-className="text-gray-900
+className="
+
+text-black
 
 dark:text-white
 
 hover:text-blue-600
 
-dark:hover:text-blue-400"
+transition
+
+"
 
 >
 
@@ -240,26 +234,16 @@ dark:hover:text-blue-400"
 
 
 
-
-
 <AuthButton />
-
-
-
 
 
 </nav>
 
 
-
-
-
 </div>
 
 
-
 </header>
-
 
 
 )
