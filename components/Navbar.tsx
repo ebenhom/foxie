@@ -48,6 +48,14 @@ w-full
 
 bg-white
 
+dark:bg-zinc-900
+
+text-black
+
+dark:text-white
+
+min-h-screen
+
 border-b
 
 shadow-sm
