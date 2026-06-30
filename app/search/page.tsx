@@ -2,38 +2,39 @@ import { prisma } from "@/lib/prisma"
 import Link from "next/link"
 
 
+export default async function Search({
 
-export default async function Search(
-{
 searchParams
+
 }:{
+
 searchParams:Promise<{
+
 q?:string
+
 category?:string
+
 }>
-}
 
-){
-
+}){
 
 
 const params = await searchParams
 
 
-const q = params.q ?? ""
+const q=params.q ?? ""
 
-const category = params.category ?? ""
+const category=params.category ?? ""
 
 
 
-const where:any = {}
-
+const where:any={}
 
 
 
 if(q){
 
-where.title = {
+where.title={
 
 contains:q,
 
@@ -45,10 +46,9 @@ mode:"insensitive"
 
 
 
-
 if(category){
 
-where.category = {
+where.category={
 
 contains:category,
 
@@ -60,14 +60,9 @@ mode:"insensitive"
 
 
 
-
-
-
 const novels = await prisma.novel.findMany({
 
-
 where,
-
 
 orderBy:{
 
@@ -75,12 +70,7 @@ createdAt:"desc"
 
 }
 
-
 })
-
-
-
-
 
 
 
@@ -88,7 +78,23 @@ createdAt:"desc"
 return (
 
 
-<div className="p-10">
+<div
+
+className="
+
+min-h-screen
+
+bg-gray-50
+
+px-4
+
+sm:px-8
+
+py-8
+
+"
+
+>
 
 
 
@@ -101,37 +107,41 @@ Tìm kiếm truyện
 
 
 
+<form
 
+action="/search"
 
-<form action="/search" className="mb-8">
+className="flex gap-3 mb-8 flex-wrap"
+
+>
 
 
 <input
 
-
 name="q"
-
 
 defaultValue={q}
 
-
 placeholder="Tên truyện"
 
-
-className="border p-3 rounded"
-
+className="border p-3 rounded-xl w-full sm:w-80"
 
 />
 
 
-
-
-
 <button
 
+className="
 
-className="border px-4 py-3 ml-2 rounded"
+border
 
+px-5
+
+rounded-xl
+
+bg-white
+
+"
 
 >
 
@@ -140,63 +150,96 @@ Tìm kiếm
 </button>
 
 
-
 </form>
 
 
 
 
 
+<div
 
+className="
 
-<div className="grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+grid
 
+grid-cols-2
+
+sm:grid-cols-3
+
+lg:grid-cols-4
+
+gap-4
+
+"
+
+>
 
 
 {
-
 
 novels.map((novel:any)=>(
 
 
 <Link
 
-
 key={novel.id}
-
 
 href={`/novels/${novel.id}`}
 
+className="
 
-className="border p-3 rounded"
+bg-white
 
+border
 
+rounded-xl
+
+p-3
+
+shadow-sm
+
+"
 
 >
 
 
 <img
 
-
 src={novel.cover}
 
+className="
 
-className="w-full sm:w-72 h-60 object-cover rounded"
+w-full
 
+h-44
+
+sm:h-60
+
+object-cover
+
+rounded-lg
+
+"
 
 />
 
 
 
+<h2
 
+className="
 
-<h2 className="font-bold mt-3">
+font-bold
+
+mt-3
+
+"
+
+>
 
 {novel.title}
 
 </h2>
-
-
 
 
 
@@ -207,28 +250,15 @@ className="w-full sm:w-72 h-60 object-cover rounded"
 </p>
 
 
-
-
-
 </Link>
-
 
 
 ))
 
-
 }
 
 
-
-
-
 </div>
-
-
-
-
-
 
 
 
@@ -244,11 +274,7 @@ Không tìm thấy truyện
 
 )
 
-
 }
-
-
-
 
 
 </div>

@@ -14,7 +14,8 @@ createdAt:"desc"
 })
 
 
-const categories = [
+
+const categories=[
 
 "Tình cảm",
 "Tâm lý",
@@ -24,18 +25,23 @@ const categories = [
 ]
 
 
+
 return (
 
 <div
 
 className="
+
 min-h-screen
-w-full
-overflow-x-hidden
+
 bg-gray-50
+
 px-4
+
 sm:px-8
+
 py-8
+
 "
 
 >
@@ -43,11 +49,7 @@ py-8
 
 <h1
 
-className="
-text-3xl
-font-bold
-mb-8
-"
+className="text-3xl font-bold mb-8"
 
 >
 
@@ -61,10 +63,15 @@ Thể loại truyện
 <div
 
 className="
+
 flex
+
 flex-wrap
+
 gap-3
+
 mb-10
+
 "
 
 >
@@ -79,15 +86,24 @@ categories.map((cat)=>(
 
 key={cat}
 
-href={`/search?category=${cat}`}
+href={`/search?category=${encodeURIComponent(cat)}`}
 
 className="
-border
+
 bg-white
+
+border
+
 px-4
+
 py-2
+
 rounded-xl
+
 hover:bg-gray-100
+
+transition
+
 "
 
 >
@@ -107,13 +123,16 @@ hover:bg-gray-100
 
 
 
-
 <h2
 
 className="
+
 text-2xl
+
 font-bold
+
 mb-6
+
 "
 
 >
@@ -125,15 +144,20 @@ Tất cả truyện
 
 
 
-
 <div
 
 className="
+
 grid
+
 grid-cols-2
+
 sm:grid-cols-3
+
 lg:grid-cols-4
+
 gap-4
+
 "
 
 >
@@ -141,29 +165,32 @@ gap-4
 
 {
 
-
 novels.map((novel:any)=>(
 
 
 <Link
 
-
 key={novel.id}
 
-
 href={`/novels/${novel.id}`}
-
 
 className="
 
 bg-white
+
 border
+
 rounded-xl
+
 p-3
+
 shadow-sm
 
-"
+hover:shadow-lg
 
+transition
+
+"
 
 >
 
@@ -173,26 +200,34 @@ shadow-sm
 src={novel.cover}
 
 className="
+
 w-full
+
 h-44
+
 sm:h-60
+
 object-cover
+
 rounded-lg
+
 "
 
 />
 
 
-
-
-
 <h3
 
 className="
+
 font-bold
+
 mt-3
+
 text-sm
+
 sm:text-base
+
 "
 
 >
@@ -202,14 +237,16 @@ sm:text-base
 </h3>
 
 
-
-
 <p
 
 className="
+
 text-sm
+
 text-gray-500
+
 mt-2
+
 "
 
 >
@@ -229,9 +266,7 @@ mt-2
 }
 
 
-
 </div>
-
 
 
 
@@ -240,5 +275,6 @@ mt-2
 
 
 )
+
 
 }

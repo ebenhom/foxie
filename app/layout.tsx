@@ -59,7 +59,7 @@ return (
 
 
 
-<Navbar />
+
 
 
 
@@ -353,7 +353,7 @@ whitespace-nowrap
 
 
 
-<Navbar />
+
 
 
 

@@ -93,11 +93,17 @@ shadow-sm
 src={novel.cover}
 
 className="
+
 w-full
+
 h-44
+
 sm:h-60
+
 object-cover
+
 rounded-lg
+
 "
 
 />

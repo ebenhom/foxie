@@ -130,17 +130,6 @@ return (
 <div className="mb-5">
 
 
-<Link
-
-href="/"
-
-className="border px-4 py-2 rounded"
-
->
-
-← Về trang chủ
-
-</Link>
 
 
 </div>
