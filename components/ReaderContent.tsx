@@ -1,43 +1,15 @@
 "use client"
 
 
-import {useEffect,useState} from "react"
+export default function ReaderContent({
 
-
-
-export default function ReaderContent
-({
 content
+
 }:{
+
 content:string
-})
 
-{
-
-
-const [size,setSize]=useState(18)
-
-
-
-useEffect(()=>{
-
-
-const saved =
-
-localStorage.getItem("reader-size")
-
-
-
-if(saved){
-
-setSize(Number(saved))
-
-}
-
-
-
-},[])
-
+}){
 
 
 
@@ -46,10 +18,13 @@ setSize(Number(saved))
 return (
 
 
+
 <div
 
 
 className="
+
+leading-relaxed
 
 px-3
 
@@ -57,21 +32,17 @@ sm:px-6
 
 md:px-10
 
-text-justify
-
 "
 
 style={{
 
-fontSize:`${size}px`,
-
-lineHeight:"1.5"
+fontSize:"var(--reader-size,18px)"
 
 }}
 
 
->
 
+>
 
 
 {
@@ -91,18 +62,13 @@ content
 key={index}
 
 
-className="
+className="my-3"
 
-my-3
-
-"
 
 >
 
 
-
 {line}
-
 
 
 </p>
@@ -112,8 +78,8 @@ my-3
 ))
 
 
-}
 
+}
 
 
 
@@ -122,6 +88,7 @@ my-3
 
 
 )
+
 
 
 }

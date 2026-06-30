@@ -55,6 +55,8 @@ setSize(Number(savedSize))
 
 
 
+
+
 useEffect(()=>{
 
 
@@ -73,6 +75,7 @@ document.documentElement.style.setProperty(
 
 if(dark){
 
+
 document.body.classList.add(
 "reader-dark"
 )
@@ -87,6 +90,8 @@ document.body.classList.remove(
 
 
 }
+
+
 
 
 
@@ -118,19 +123,33 @@ String(size)
 
 
 
+
+
+
+
 return (
+
 
 
 <div
 
 className="
+
 fixed
+
 right-4
+
 bottom-4
+
 z-50
+
 "
 
 >
+
+
+
+
 
 
 
@@ -141,12 +160,19 @@ onClick={()=>setOpen(!open)}
 
 
 className="
+
 border
+
 rounded-full
+
 p-3
+
 bg-white
+
 shadow
+
 "
+
 
 >
 
@@ -162,37 +188,37 @@ shadow
 
 
 
-{
 
+
+{
 
 open && (
 
 
 
-<div
 
+
+<div
 
 className="
 
 absolute
 
-bottom-16
+bottom-14
 
 right-0
 
-w-70
-
-max-w-[90vw]
-
 border
+
+p-5
 
 rounded-xl
 
 bg-white
 
-shadow-lg
+w-64
 
-p-5
+shadow-lg
 
 "
 
@@ -201,12 +227,10 @@ p-5
 
 
 
+
 <h3
 
-className="
-font-bold
-mb-4
-"
+className="font-bold mb-4"
 
 >
 
@@ -228,24 +252,9 @@ Cài đặt đọc
 onClick={()=>setDark(!dark)}
 
 
-className="
-
-border
-
-px-3
-
-py-2
-
-rounded-xl
-
-mb-5
-
-w-full
-
-"
+className="border px-3 py-2 rounded mb-4"
 
 >
-
 
 
 {
@@ -255,15 +264,17 @@ dark
 
 ?
 
-"☀️ Chế độ sáng"
+"☀️ Sáng"
 
 :
 
-"🌙 Chế độ tối"
+"🌙 Tối"
+
 
 }
 
 
+
 </button>
 
 
@@ -272,56 +283,16 @@ dark
 
 
 
-<div>
 
 
-<p
 
-className="
-mb-3
-"
 
->
-
+<p>
 
 Cỡ chữ: {size}px
 
-
 </p>
 
-
-
-
-
-
-
-<div
-
-className="
-flex
-items-center
-gap-3
-"
-
->
-
-
-
-<button
-
-onClick={()=>setSize(Math.max(14,size-1))}
-
-className="
-border
-px-3
-rounded
-"
-
->
-
-A-
-
-</button>
 
 
 
@@ -342,11 +313,13 @@ max="32"
 value={size}
 
 
-onChange={e=>
+onChange={(e)=>{
+
 
 setSize(Number(e.target.value))
 
-}
+
+}}
 
 
 
@@ -356,57 +329,25 @@ setSize(Number(e.target.value))
 
 
 
-<button
-
-
-onClick={()=>setSize(Math.min(32,size+1))}
-
-
-className="
-border
-px-3
-rounded
-"
-
->
-
-A+
-
-</button>
-
-
-
-</div>
-
 
 
 
 
 </div>
 
-
-
-
-
-
-
-</div>
 
 
 )
-
 
 }
 
 
 
-
-
 </div>
 
 
-
 )
+
 
 
 }
