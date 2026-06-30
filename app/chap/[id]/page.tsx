@@ -456,7 +456,7 @@ chap.content
 
 .split("\n")
 
-.map((line,index:any)=>(
+.map((line:any,index:number)=>(
 
 
 <p
