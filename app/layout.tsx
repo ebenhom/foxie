@@ -8,6 +8,8 @@ import AuthButton from "@/components/AuthButton"
 
 import Link from "next/link"
 
+import NavbarController from "@/components/NavbarController"
+
 
 
 
@@ -57,6 +59,12 @@ return (
 
 
 
+<NavbarController>
+
+
+
+
+
 <header
 
 className="
@@ -76,6 +84,7 @@ border-b
 shadow-sm
 
 "
+
 
 >
 
@@ -105,6 +114,7 @@ gap-4
 "
 
 >
+
 
 
 
@@ -185,6 +195,7 @@ sm:text-base
 
 href="/"
 
+
 className="
 
 hover:text-blue-600
@@ -212,6 +223,7 @@ Trang chủ
 <Link
 
 href="/hot"
+
 
 className="
 
@@ -241,6 +253,7 @@ whitespace-nowrap
 
 href="/category"
 
+
 className="
 
 hover:text-blue-600
@@ -268,6 +281,7 @@ whitespace-nowrap
 <Link
 
 href="/search"
+
 
 className="
 
@@ -301,6 +315,8 @@ whitespace-nowrap
 
 
 
+
+
 </nav>
 
 
@@ -317,6 +333,8 @@ whitespace-nowrap
 
 
 
+
+
 </header>
 
 
@@ -328,6 +346,14 @@ whitespace-nowrap
 
 
 {children}
+
+
+
+
+
+
+
+</NavbarController>
 
 
 

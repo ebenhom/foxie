@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/prisma"
 import Link from "next/link"
-import Navbar from "@/components/Navbar"
 
 
 export default async function Category(){
@@ -33,7 +32,7 @@ return (
 
 <div className="p-10">
 
-<Navbar />
+
 
 <h1 className="text-3xl font-bold mb-8">
 
@@ -55,21 +54,15 @@ categories.map((cat:any)=>(
 
 <Link
 
-
 key={cat}
 
-
-href={`/search?category=${cat}`}
-
+href={`/category/${cat}`}
 
 className="border px-4 py-2 rounded"
 
-
 >
 
-
 {cat}
-
 
 </Link>
 
