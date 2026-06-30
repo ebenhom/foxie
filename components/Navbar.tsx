@@ -98,7 +98,13 @@ sm:text-3xl
 
 font-bold
 
+text-gray-900
+
+dark:text-white
+
 hover:text-blue-600
+
+dark:hover:text-blue-400
 
 transition
 
@@ -147,7 +153,13 @@ sm:text-base
 
 href="/"
 
-className="hover:text-blue-600"
+className="text-gray-900
+
+dark:text-white
+
+hover:text-blue-600
+
+dark:hover:text-blue-400"
 
 >
 
@@ -162,7 +174,13 @@ Trang chủ
 
 href="/hot"
 
-className="hover:text-blue-600"
+className="text-gray-900
+
+dark:text-white
+
+hover:text-blue-600
+
+dark:hover:text-blue-400"
 
 >
 
@@ -177,7 +195,13 @@ className="hover:text-blue-600"
 
 href="/category"
 
-className="hover:text-blue-600"
+className="text-gray-900
+
+dark:text-white
+
+hover:text-blue-600
+
+dark:hover:text-blue-400"
 
 >
 
@@ -192,7 +216,13 @@ className="hover:text-blue-600"
 
 href="/search"
 
-className="hover:text-blue-600"
+className="text-gray-900
+
+dark:text-white
+
+hover:text-blue-600
+
+dark:hover:text-blue-400"
 
 >
 

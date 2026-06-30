@@ -164,12 +164,27 @@ novelId={novel.id}
 
 <img
 
-
 src={novel.cover}
 
+className="
 
-className="w-full max-w-md mx-auto h-80 object-cover rounded"
+w-full
 
+max-w-sm
+
+mx-auto
+
+h-auto
+
+max-h-150
+
+object-contain
+
+rounded-xl
+
+shadow
+
+"
 
 />
 

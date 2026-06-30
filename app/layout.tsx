@@ -79,12 +79,15 @@ w-full
 
 bg-white
 
+dark:bg-zinc-900
+
 border-b
+
+dark:border-zinc-700
 
 shadow-sm
 
 "
-
 
 >
 
@@ -139,7 +142,13 @@ font-bold
 
 tracking-wide
 
+text-gray-900
+
+dark:text-white
+
 hover:text-blue-600
+
+dark:hover:text-blue-400
 
 transition
 
@@ -198,7 +207,13 @@ href="/"
 
 className="
 
+text-gray-900
+
+dark:text-white
+
 hover:text-blue-600
+
+dark:hover:text-blue-400
 
 transition
 
@@ -227,7 +242,13 @@ href="/hot"
 
 className="
 
+text-gray-900
+
+dark:text-white
+
 hover:text-blue-600
+
+dark:hover:text-blue-400
 
 transition
 
@@ -256,7 +277,13 @@ href="/category"
 
 className="
 
+text-gray-900
+
+dark:text-white
+
 hover:text-blue-600
+
+dark:hover:text-blue-400
 
 transition
 
@@ -285,7 +312,13 @@ href="/search"
 
 className="
 
+text-gray-900
+
+dark:text-white
+
 hover:text-blue-600
+
+dark:hover:text-blue-400
 
 transition
 
