@@ -46,7 +46,7 @@ Quản lý bình luận
 
 {
 
-comments.map((c)=>(
+comments.map((c:any)=>(
 
 
 <div
