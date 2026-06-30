@@ -3,35 +3,11 @@
 
 import Link from "next/link"
 
-import {usePathname} from "next/navigation"
-
 
 
 
 
 export default function Navbar(){
-
-
-
-const pathname = usePathname()
-
-
-
-const isReading =
-pathname.startsWith("/chap/")
-
-
-
-
-
-if(isReading){
-
-return null
-
-}
-
-
-
 
 
 
@@ -55,8 +31,6 @@ bg-white
 
 
 
-
-
 <div
 
 className="
@@ -77,11 +51,11 @@ items-center
 
 justify-between
 
+gap-5
+
 "
 
 >
-
-
 
 
 
@@ -117,21 +91,21 @@ Foxie
 
 
 
-
-
 <div
 
 className="
 
 flex
 
-gap-6
-
 items-center
+
+gap-5
 
 "
 
 >
+
+
 
 
 
@@ -143,7 +117,13 @@ items-center
 href="/"
 
 
-className="hover:text-blue-600"
+className="
+
+hover:text-blue-600
+
+transition
+
+"
 
 >
 
@@ -157,13 +137,21 @@ Trang chủ
 
 
 
+
+
 <Link
 
 
 href="/login"
 
 
-className="hover:text-blue-600"
+className="
+
+hover:text-blue-600
+
+transition
+
+"
 
 >
 
@@ -177,15 +165,18 @@ className="hover:text-blue-600"
 
 
 
-</div>
-
-
-
-
-
 
 
 </div>
+
+
+
+
+
+
+
+</div>
+
 
 
 
@@ -197,7 +188,6 @@ className="hover:text-blue-600"
 
 
 )
-
 
 
 }
