@@ -110,7 +110,7 @@ chap.novel.chapters
 const index =
 chapters.findIndex(
 
-item=>item.id===chap.id
+(item:any)=>item.id===chap.id
 
 )
 
