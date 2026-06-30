@@ -10,7 +10,6 @@ import Link from "next/link"
 
 import Navbar from "@/components/Navbar"
 
-import NavbarWrapper from "@/components/NavbarWrapper"
 
 
 
@@ -374,7 +373,7 @@ whitespace-nowrap
 
 
 
-<NavbarWrapper/>
+
 
 
 
