@@ -7,13 +7,12 @@ import {usePathname} from "next/navigation"
 
 import AuthButton from "@/components/AuthButton"
 
-import {useState} from "react"
-
 
 
 
 
 export default function Navbar(){
+
 
 
 const pathname = usePathname()
@@ -24,80 +23,15 @@ pathname.startsWith("/chap/")
 
 
 
-const [show,setShow] = useState(false)
+if(isReading){
 
-
-
-
-
-return (
-
-
-<>
-
-
-{
-
-
-isReading && (
-
-
-<button
-
-
-onClick={()=>setShow(!show)}
-
-
-className="
-
-fixed
-
-top-4
-
-right-4
-
-z-100
-
-bg-white
-
-border
-
-rounded-full
-
-px-4
-
-py-2
-
-shadow
-
-"
-
-
->
-
-
-☰
-
-
-</button>
-
-
-)
+return null
 
 }
 
 
 
-
-
-
-
-
-{
-
-
-(!isReading || show) && (
-
+return (
 
 
 <header
@@ -124,7 +58,6 @@ shadow-sm
 >
 
 
-
 <div
 
 className="
@@ -149,14 +82,7 @@ gap-4
 
 "
 
-
 >
-
-
-
-
-
-
 
 
 
@@ -168,11 +94,15 @@ className="
 
 text-2xl
 
+sm:text-3xl
+
 font-bold
 
 hover:text-blue-600
 
 transition
+
+whitespace-nowrap
 
 "
 
@@ -181,9 +111,6 @@ transition
 Foxie
 
 </Link>
-
-
-
 
 
 
@@ -202,7 +129,9 @@ items-center
 
 justify-center
 
-gap-4
+gap-3
+
+sm:gap-6
 
 text-sm
 
@@ -214,7 +143,13 @@ sm:text-base
 
 
 
-<Link href="/">
+<Link
+
+href="/"
+
+className="hover:text-blue-600"
+
+>
 
 Trang chủ
 
@@ -222,7 +157,14 @@ Trang chủ
 
 
 
-<Link href="/hot">
+
+<Link
+
+href="/hot"
+
+className="hover:text-blue-600"
+
+>
 
 🔥 Hot
 
@@ -230,7 +172,14 @@ Trang chủ
 
 
 
-<Link href="/category">
+
+<Link
+
+href="/category"
+
+className="hover:text-blue-600"
+
+>
 
 📚 Thể loại
 
@@ -238,7 +187,14 @@ Trang chủ
 
 
 
-<Link href="/search">
+
+<Link
+
+href="/search"
+
+className="hover:text-blue-600"
+
+>
 
 🔎 Tìm kiếm
 
@@ -246,15 +202,15 @@ Trang chủ
 
 
 
+
+
 <AuthButton />
 
 
 
+
+
 </nav>
-
-
-
-
 
 
 
@@ -270,16 +226,5 @@ Trang chủ
 
 )
 
-}
-
-
-
-
-
-
-</>
-
-
-)
 
 }

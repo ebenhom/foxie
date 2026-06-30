@@ -8,7 +8,7 @@ import AuthButton from "@/components/AuthButton"
 
 import Link from "next/link"
 
-import NavbarController from "@/components/NavbarController"
+import Navbar from "@/components/Navbar"
 
 
 
@@ -59,7 +59,7 @@ return (
 
 
 
-<NavbarController>
+<Navbar />
 
 
 
@@ -353,7 +353,7 @@ whitespace-nowrap
 
 
 
-</NavbarController>
+<Navbar />
 
 
 

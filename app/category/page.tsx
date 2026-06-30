@@ -5,7 +5,6 @@ import Link from "next/link"
 export default async function Category(){
 
 
-
 const novels = await prisma.novel.findMany({
 
 orderBy:{
@@ -13,7 +12,6 @@ createdAt:"desc"
 }
 
 })
-
 
 
 const categories = [
@@ -26,15 +24,32 @@ const categories = [
 ]
 
 
-
-
 return (
 
-<div className="p-10">
+<div
+
+className="
+min-h-screen
+w-full
+overflow-x-hidden
+bg-gray-50
+px-4
+sm:px-8
+py-8
+"
+
+>
 
 
+<h1
 
-<h1 className="text-3xl font-bold mb-8">
+className="
+text-3xl
+font-bold
+mb-8
+"
+
+>
 
 Thể loại truyện
 
@@ -43,22 +58,37 @@ Thể loại truyện
 
 
 
+<div
 
-<div className="flex flex-wrap gap-3 sm:gap-6">
+className="
+flex
+flex-wrap
+gap-3
+mb-10
+"
+
+>
 
 
 {
 
-categories.map((cat:any)=>(
+categories.map((cat)=>(
 
 
 <Link
 
 key={cat}
 
-href={`/category/${cat}`}
+href={`/search?category=${cat}`}
 
-className="border px-4 py-2 rounded"
+className="
+border
+bg-white
+px-4
+py-2
+rounded-xl
+hover:bg-gray-100
+"
 
 >
 
@@ -69,9 +99,7 @@ className="border px-4 py-2 rounded"
 
 ))
 
-
 }
-
 
 
 </div>
@@ -80,10 +108,15 @@ className="border px-4 py-2 rounded"
 
 
 
+<h2
 
+className="
+text-2xl
+font-bold
+mb-6
+"
 
-
-<h2 className="text-2xl font-bold mb-5">
+>
 
 Tất cả truyện
 
@@ -93,9 +126,17 @@ Tất cả truyện
 
 
 
+<div
 
-<div className="grid grid-cols-4 gap-5">
+className="
+grid
+grid-cols-2
+sm:grid-cols-3
+lg:grid-cols-4
+gap-4
+"
 
+>
 
 
 {
@@ -113,7 +154,15 @@ key={novel.id}
 href={`/novels/${novel.id}`}
 
 
-className="border p-3 rounded"
+className="
+
+bg-white
+border
+rounded-xl
+p-3
+shadow-sm
+
+"
 
 
 >
@@ -123,7 +172,13 @@ className="border p-3 rounded"
 
 src={novel.cover}
 
-className="w-full h-60 object-cover rounded"
+className="
+w-full
+h-44
+sm:h-60
+object-cover
+rounded-lg
+"
 
 />
 
@@ -131,17 +186,33 @@ className="w-full h-60 object-cover rounded"
 
 
 
-<h2 className="font-bold mt-3">
+<h3
+
+className="
+font-bold
+mt-3
+text-sm
+sm:text-base
+"
+
+>
 
 {novel.title}
 
-</h2>
+</h3>
 
 
 
 
+<p
 
-<p>
+className="
+text-sm
+text-gray-500
+mt-2
+"
+
+>
 
 🏷 {novel.tags}
 
@@ -152,7 +223,6 @@ className="w-full h-60 object-cover rounded"
 </Link>
 
 
-
 ))
 
 
@@ -160,10 +230,7 @@ className="w-full h-60 object-cover rounded"
 
 
 
-
 </div>
-
-
 
 
 
@@ -173,6 +240,5 @@ className="w-full h-60 object-cover rounded"
 
 
 )
-
 
 }
