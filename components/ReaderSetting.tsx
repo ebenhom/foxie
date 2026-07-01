@@ -27,18 +27,12 @@ const [size,setSize]=useState(18)
 useEffect(()=>{
 
 
-
 const savedDark =
-
 localStorage.getItem("reader-dark")
 
 
-
 const savedSize =
-
 localStorage.getItem("reader-size")
-
-
 
 
 
@@ -50,15 +44,11 @@ setDark(true)
 
 
 
-
-
 if(savedSize){
 
 setSize(Number(savedSize))
 
 }
-
-
 
 
 
@@ -79,78 +69,38 @@ setSize(Number(savedSize))
 useEffect(()=>{
 
 
-
-
-
 document.documentElement.style.setProperty(
-
 "--reader-size",
-
 `${size}px`
-
 )
-
-
-
-
 
 
 
 if(dark){
 
-
-
-document.documentElement.classList.add(
-
-"reader-dark"
-
-)
-
+document.documentElement.classList.add("dark")
 
 
 }else{
 
-
-
-document.documentElement.classList.remove(
-
-"reader-dark"
-
-)
-
+document.documentElement.classList.remove("dark")
 
 
 }
 
 
 
-
-
-
-
 localStorage.setItem(
-
 "reader-dark",
-
 String(dark)
-
 )
-
-
 
 
 
 localStorage.setItem(
-
 "reader-size",
-
 String(size)
-
 )
-
-
-
-
 
 
 
@@ -205,17 +155,13 @@ onClick={()=>setOpen(!open)}
 
 
 className="
-
 border
-
 rounded-full
-
 p-3
-
 bg-white
-
+dark:bg-zinc-800
+dark:text-white
 shadow
-
 "
 
 >
@@ -267,6 +213,8 @@ p-5
 rounded-xl
 
 bg-white
+dark:bg-zinc-800
+dark:text-white
 
 w-64
 
