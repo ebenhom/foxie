@@ -5,6 +5,8 @@ import {useEffect,useState} from "react"
 
 
 
+
+
 export default function ReaderSetting(){
 
 
@@ -19,15 +21,24 @@ const [size,setSize]=useState(18)
 
 
 
+
+
+
 useEffect(()=>{
 
 
+
 const savedDark =
+
 localStorage.getItem("reader-dark")
 
 
+
 const savedSize =
+
 localStorage.getItem("reader-size")
+
+
 
 
 
@@ -39,11 +50,15 @@ setDark(true)
 
 
 
+
+
 if(savedSize){
 
 setSize(Number(savedSize))
 
 }
+
+
 
 
 
@@ -57,7 +72,13 @@ setSize(Number(savedSize))
 
 
 
+
+
+
+
 useEffect(()=>{
+
+
 
 
 
@@ -73,23 +94,35 @@ document.documentElement.style.setProperty(
 
 
 
+
+
 if(dark){
 
 
-document.body.classList.add(
+
+document.documentElement.classList.add(
+
 "reader-dark"
+
 )
+
 
 
 }else{
 
 
-document.body.classList.remove(
+
+document.documentElement.classList.remove(
+
 "reader-dark"
+
 )
 
 
+
 }
+
+
 
 
 
@@ -105,6 +138,8 @@ String(dark)
 
 
 
+
+
 localStorage.setItem(
 
 "reader-size",
@@ -115,7 +150,13 @@ String(size)
 
 
 
+
+
+
+
 },[dark,size])
+
+
 
 
 
@@ -153,10 +194,14 @@ z-50
 
 
 
+
+
 <button
 
 
+
 onClick={()=>setOpen(!open)}
+
 
 
 className="
@@ -173,11 +218,12 @@ shadow
 
 "
 
-
 >
 
 
+
 ⚙️
+
 
 
 </button>
@@ -190,9 +236,15 @@ shadow
 
 
 
+
+
+
 {
 
+
 open && (
+
+
 
 
 
@@ -228,15 +280,25 @@ shadow-lg
 
 
 
+
+
+
 <h3
 
 className="font-bold mb-4"
 
 >
 
+
+
 Cài đặt đọc
 
+
+
 </h3>
+
+
+
 
 
 
@@ -249,29 +311,62 @@ Cài đặt đọc
 <button
 
 
+
 onClick={()=>setDark(!dark)}
 
 
-className="border px-3 py-2 rounded mb-4"
+
+className="
+
+border
+
+px-3
+
+py-2
+
+rounded
+
+mb-4
+
+"
+
+
 
 >
+
+
+
 
 
 {
 
 
+
 dark
+
+
 
 ?
 
+
+
 "☀️ Sáng"
 
+
+
 :
+
+
 
 "🌙 Tối"
 
 
+
+
+
 }
+
+
 
 
 
@@ -287,11 +382,19 @@ dark
 
 
 
+
 <p>
+
+
 
 Cỡ chữ: {size}px
 
+
+
 </p>
+
+
+
 
 
 
@@ -301,22 +404,29 @@ Cỡ chữ: {size}px
 <input
 
 
+
 type="range"
+
 
 
 min="14"
 
 
+
 max="32"
+
 
 
 value={size}
 
 
+
 onChange={(e)=>{
 
 
+
 setSize(Number(e.target.value))
+
 
 
 }}
@@ -333,17 +443,28 @@ setSize(Number(e.target.value))
 
 
 
+
+
 </div>
 
 
 
 )
 
+
+
 }
 
 
 
+
+
+
+
+
+
 </div>
+
 
 
 )
