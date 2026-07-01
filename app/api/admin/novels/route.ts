@@ -7,9 +7,14 @@ import cloudinary from "@/lib/cloudinary"
 
 
 
+
 export async function POST(
 req:Request
 ){
+
+
+try{
+
 
 
 const formData =
@@ -17,23 +22,26 @@ await req.formData()
 
 
 
+
+
 const title =
-String(formData.get("title"))
+String(formData.get("title") || "")
 
 
 
 const description =
-String(formData.get("description"))
+String(formData.get("description") || "")
 
 
 
 const tags =
-String(formData.get("tags"))
+String(formData.get("tags") || "")
 
 
 
 const category =
-String(formData.get("category")) || "Khác"
+String(formData.get("category") || "Khác")
+
 
 
 
@@ -45,21 +53,27 @@ formData.get("cover") as File | null
 
 
 
-let cover=""
+let cover = ""
 
 
 
 
 
-if(file){
+
+if(file && file.size > 0){
+
 
 
 const bytes =
 await file.arrayBuffer()
 
 
+
 const buffer =
 Buffer.from(bytes)
+
+
+
 
 
 
@@ -71,41 +85,57 @@ await new Promise<any>(
 
 cloudinary.uploader.upload_stream(
 
+
 {
 folder:"foxie"
 },
 
+
 (error,result)=>{
 
 
-if(error)
+if(error){
+
 reject(error)
 
+}
 
-else
+
+else{
+
+
 resolve(result)
 
-
 }
-
-)
-
-.end(buffer)
-
 
 
 }
 
 
 
+).end(buffer)
+
+
+
+}
+
+
+
+
 )
+
+
+
+
 
 
 cover =
 upload.secure_url
 
 
+
 }
+
 
 
 
@@ -113,23 +143,32 @@ upload.secure_url
 
 
 const novel =
+
 await prisma.novel.create({
+
 
 data:{
 
 
 title,
 
+
 description,
+
 
 tags,
 
+
 category,
+
 
 cover
 
 
+
 }
+
+
 
 })
 
@@ -137,8 +176,45 @@ cover
 
 
 
-return NextResponse.json(novel)
 
+return NextResponse.json(
+novel,
+{
+status:200
+}
+)
+
+
+
+
+
+}
+
+catch(error){
+
+
+console.log(
+"CREATE NOVEL ERROR:",
+error
+)
+
+
+
+return NextResponse.json(
+
+{
+error:"Create novel failed"
+},
+
+{
+status:500
+}
+
+)
+
+
+
+}
 
 
 }
