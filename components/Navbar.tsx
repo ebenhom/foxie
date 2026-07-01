@@ -9,6 +9,7 @@ import AuthButton from "@/components/AuthButton"
 
 
 
+
 export default function Navbar(){
 
 
@@ -24,7 +25,10 @@ return null
 
 
 
+
+
 return (
+
 
 <header
 
@@ -40,11 +44,7 @@ w-full
 
 bg-white
 
-dark:bg-zinc-900
-
 border-b
-
-dark:border-zinc-700
 
 shadow-sm
 
@@ -92,7 +92,9 @@ font-bold
 
 text-gray-900
 
-dark:text-white
+hover:text-blue-600
+
+transition
 
 "
 
@@ -101,6 +103,8 @@ dark:text-white
 Foxie
 
 </Link>
+
+
 
 
 
@@ -119,28 +123,95 @@ items-center
 >
 
 
-<Link href="/" className="dark:text-white">
+
+
+<Link
+
+href="/"
+
+className="
+
+text-gray-900
+
+hover:text-blue-600
+
+transition
+
+"
+
+>
 
 Trang chủ
 
 </Link>
 
 
-<Link href="/hot" className="dark:text-white">
+
+
+
+<Link
+
+href="/hot"
+
+className="
+
+text-gray-900
+
+hover:text-blue-600
+
+transition
+
+"
+
+>
 
 🔥 Hot
 
 </Link>
 
 
-<Link href="/category" className="dark:text-white">
+
+
+
+<Link
+
+href="/category"
+
+className="
+
+text-gray-900
+
+hover:text-blue-600
+
+transition
+
+"
+
+>
 
 📚 Thể loại
 
 </Link>
 
 
-<Link href="/search" className="dark:text-white">
+
+
+
+<Link
+
+href="/search"
+
+className="
+
+text-gray-900
+
+hover:text-blue-600
+
+transition
+
+"
+
+>
 
 🔎 Tìm kiếm
 
@@ -148,7 +219,12 @@ Trang chủ
 
 
 
+
+
 <AuthButton/>
+
+
+
 
 
 </nav>
@@ -159,6 +235,8 @@ Trang chủ
 
 </header>
 
+
 )
+
 
 }
