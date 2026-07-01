@@ -143,21 +143,12 @@ chapters[index+1]
 
 return (
 
-
-
 <>
 
 
-{/* toolbar đọc truyện */}
-
-
-
-
-
-
-
-
 <div
+
+id="reader-area"
 
 className="
 
@@ -170,8 +161,6 @@ overflow-x-hidden
 "
 
 >
-
-
 
 
 <div
@@ -470,15 +459,11 @@ my-6
 
 
 
-<div>
-
 <ReaderContent
 
 content={chap.content}
 
 />
-
-</div>
 
 
 <ReaderSetting />
