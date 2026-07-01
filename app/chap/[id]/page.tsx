@@ -470,9 +470,8 @@ my-6
 
 
 
-/* nội dung truyện */
 
-<div id="reader-area">
+<div>
 
 <ReaderContent
 
