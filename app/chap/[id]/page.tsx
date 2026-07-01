@@ -470,16 +470,17 @@ my-6
 
 
 
-{/* nội dung truyện */}
+/* nội dung truyện */
+
+<div id="reader-area">
 
 <ReaderContent
 
-
 content={chap.content}
-
 
 />
 
+</div>
 
 
 
