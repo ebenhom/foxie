@@ -10,25 +10,26 @@ export async function DELETE(
 
 req:Request,
 
-context:{
-params:{
+{
+params
+}:{
+params:Promise<{
 id:string
-}
+}>
 }
 
 ){
 
 
 
-const id =
-context.params.id
-
-
-
-
-
-
 try{
+
+
+
+const {id} = await params
+
+
+
 
 
 
@@ -45,7 +46,6 @@ id
 
 
 })
-
 
 
 
