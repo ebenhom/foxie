@@ -2,14 +2,10 @@ import { prisma } from "@/lib/prisma"
 
 import ContinueReading from "@/components/ContinueReading"
 
-import { unstable_cache } from "next/cache"
-
 import Link from "next/link"
 
 
-
-
-
+export const dynamic = "force-dynamic"
 
 
 
@@ -20,20 +16,7 @@ export default async function Home(){
 
 
 
-
-
-
-
-
-
-
-
-const getNovels = unstable_cache(
-
-async()=>{
-
-
-return await prisma.novel.findMany({
+const novels = await prisma.novel.findMany({
 
 
 orderBy:{
@@ -51,60 +34,13 @@ take:8
 })
 
 
-},
-
-
-["home-novels"],
-
-
-{
-
-revalidate:60
-
-}
-
-
-)
 
 
 
 
 
 
-
-
-
-
-
-
-const novels = await getNovels()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const getHotNovels = unstable_cache(
-
-async()=>{
-
-
-return await prisma.novel.findMany({
+const hotNovels = await prisma.novel.findMany({
 
 
 orderBy:{
@@ -120,49 +56,6 @@ take:8
 
 
 })
-
-
-},
-
-
-["hot-novels"],
-
-
-{
-
-revalidate:60
-
-}
-
-
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-const hotNovels = await getHotNovels()
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -227,12 +120,6 @@ py-8
 
 
 </section>
-
-
-
-
-
-
 
 
 
@@ -313,6 +200,7 @@ mb-8
 
 
 
+
 <div
 
 className="
@@ -332,14 +220,6 @@ sm:gap-6
 "
 
 >
-
-
-
-
-
-
-
-
 
 
 
@@ -410,13 +290,6 @@ transition
 
 
 
-
-
-
-
-
-
-
 <img
 
 
@@ -444,18 +317,7 @@ rounded-lg
 alt={novel.title}
 
 
-
-
-
 />
-
-
-
-
-
-
-
-
 
 
 
@@ -499,15 +361,6 @@ mt-4
 
 
 
-
-
-
-
-
-
-
-
-
 <p
 
 
@@ -531,16 +384,6 @@ text-sm
 
 
 </p>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -580,17 +423,6 @@ mt-2
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 </Link>
 
 
@@ -598,14 +430,6 @@ mt-2
 
 
 ))}
-
-
-
-
-
-
-
-
 
 
 
@@ -621,23 +445,7 @@ mt-2
 
 
 
-
-
-
-
-
-
-
 </section>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -684,16 +492,6 @@ pb-20
 
 
 
-
-
-
-
-
-
-
-
-
-
 <h1
 
 
@@ -719,22 +517,6 @@ mb-8
 
 
 </h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -774,41 +556,9 @@ sm:gap-6
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {
 
 novels.map((novel:any)=>(
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -836,6 +586,7 @@ href={`/novels/${novel.id}`}
 
 
 
+
 className="
 
 bg-white
@@ -858,31 +609,7 @@ transition
 
 "
 
-
-
-
-
-
-
-
-
 >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -896,15 +623,7 @@ transition
 
 
 
-
-
-
-
 src={novel.cover}
-
-
-
-
 
 
 
@@ -925,32 +644,10 @@ rounded-lg
 
 
 
-
-
-
 alt={novel.title}
 
 
-
-
-
-
-
 />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -996,22 +693,6 @@ mt-4
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <p
 
 
@@ -1033,22 +714,6 @@ mt-3
 
 
 </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1090,39 +755,7 @@ mt-1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </Link>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1132,27 +765,9 @@ mt-1
 
 
 
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1170,31 +785,7 @@ mt-1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </section>
-
-
-
-
-
-
-
-
 
 
 

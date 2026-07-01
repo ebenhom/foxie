@@ -4,6 +4,7 @@ import {prisma} from "@/lib/prisma"
 
 import cloudinary from "@/lib/cloudinary"
 
+import { revalidatePath } from "next/cache"
 
 
 
@@ -173,7 +174,10 @@ cover
 })
 
 
-
+revalidatePath("/")
+revalidatePath("/admin/novels")
+revalidatePath("/hot")
+revalidatePath("/category")
 
 
 

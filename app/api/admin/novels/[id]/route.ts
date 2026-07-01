@@ -2,7 +2,7 @@ import {NextResponse} from "next/server"
 
 import {prisma} from "@/lib/prisma"
 
-
+import { revalidatePath } from "next/cache"
 
 
 
@@ -49,7 +49,10 @@ id
 
 
 
-
+revalidatePath("/")
+revalidatePath("/admin/novels")
+revalidatePath("/hot")
+revalidatePath("/category")
 
 
 return NextResponse.json(
