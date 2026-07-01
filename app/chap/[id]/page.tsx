@@ -470,7 +470,6 @@ my-6
 
 
 
-
 <div>
 
 <ReaderContent
@@ -482,7 +481,7 @@ content={chap.content}
 </div>
 
 
-
+<ReaderSetting />
 
 
 
