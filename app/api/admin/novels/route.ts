@@ -1,9 +1,8 @@
 import {NextResponse} from "next/server"
+
 import {prisma} from "@/lib/prisma"
 
-import fs from "fs/promises"
-import path from "path"
-
+import cloudinary from "@/lib/cloudinary"
 
 
 
@@ -13,32 +12,28 @@ req:Request
 ){
 
 
-
 const formData =
 await req.formData()
 
 
 
-
-
 const title =
-formData.get("title") as string
+String(formData.get("title"))
 
 
 
 const description =
-formData.get("description") as string
+String(formData.get("description"))
 
 
 
 const tags =
-formData.get("tags") as string
+String(formData.get("tags"))
 
 
 
 const category =
-formData.get("category") as string || "Khác"
-
+String(formData.get("category")) || "Khác"
 
 
 
@@ -50,10 +45,7 @@ formData.get("cover") as File | null
 
 
 
-
-let cover = ""
-
-
+let cover=""
 
 
 
@@ -62,10 +54,8 @@ let cover = ""
 if(file){
 
 
-
 const bytes =
 await file.arrayBuffer()
-
 
 
 const buffer =
@@ -73,83 +63,49 @@ Buffer.from(bytes)
 
 
 
+const upload =
+await new Promise<any>(
+
+(resolve,reject)=>{
 
 
-const uploadDir =
-path.join(
-
-process.cwd(),
-
-"public/uploads"
-
-)
-
-
-
-
-
-await fs.mkdir(
-
-uploadDir,
+cloudinary.uploader.upload_stream(
 
 {
+folder:"foxie"
+},
 
-recursive:true
+(error,result)=>{
+
+
+if(error)
+reject(error)
+
+
+else
+resolve(result)
+
 
 }
 
 )
 
+.end(buffer)
 
 
 
+}
 
 
-
-const filename =
-
-Date.now()
-
-+
-
-"-"
-
-+
-
-file.name
-
-
-
-
-
-
-await fs.writeFile(
-
-path.join(
-
-uploadDir,
-
-filename
-
-),
-
-buffer
 
 )
-
-
-
 
 
 cover =
-"/uploads/" + filename
-
+upload.secure_url
 
 
 }
-
-
-
 
 
 
@@ -157,37 +113,25 @@ cover =
 
 
 const novel =
-
 await prisma.novel.create({
-
 
 data:{
 
 
 title,
 
-
 description,
-
 
 tags,
 
-
 category,
-
 
 cover
 
 
-
 }
 
-
-
 })
-
-
-
 
 
 
